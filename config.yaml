@@ -1,0 +1,48 @@
+Local_Dict: "./dict/超級クラウン日中辞典.mdx"  # 本地词典的路径
+Local_Dict_CSS: "./dict/超級クラウン日中辞典.css"  # 本地词典样式表的路径，供generate_deck_model.py自动生成Anki模板用
+Online_Dict: "https://mazii.net/zh-CN/search/word/jacn/%s"  # 在线词典的查询URL，用于生成在线查询按钮，查询词部分用%s替代
+
+Anki:  # Anki Connect的设置
+  URL: http://127.0.0.1:8765  # Anki Connect的监听地址，如果没有改过Anki Connect的默认设置就不需要改
+  Key: ""  # 密钥，如果没有改过Anki Connect的默认设置就不需要设
+  Deck: "ATRI"  # 牌组名
+  Model: "Novel2Anki"  # 模板名
+  Front: "正面"  # 正面字段
+  Back: "背面"  # 背面字段
+  Allow_Duplicate: false  # 允许重复
+  Media_Server_Port: 5001  # 向Anki Connect发送语音文件的服务器的监听端口，如果没有端口冲突就不需要改
+ 
+Use_Dict_For:  # 对于哪些词性需要使用词典查询  将不需要的词性注释掉
+- NOUN  # 名詞
+#- NAME  # 人名
+#- PLACE_NAME  # 地名
+#- NUMBER  # 数詞
+#- COUNTER  # 助数詞
+#- PRONOUN  # 代名詞
+- VERB  # 動詞
+- ADJECTIVE  # 形容詞
+- ADJECTIVAL_NOUN  # 形状詞
+- ADVERB  # 副詞
+#- PARTICLE  # 助詞
+#- AUXILIARY_VERB  # 助動詞
+- PRE_NOUN_ADJECTIVAL  # 連体詞
+#- INTERJECTION  # 感動詞
+#- SUFFIX  # 接尾辞
+- CONJUNCTION  # 接続詞
+- PREFIX  # 接頭辞
+ 
+Include:  # 卡片背面包含哪些组分
+  Character: true  # 说话人标识
+  Sentence_Original: true  # 语法解析后的原句子，禁用此项后单词解释也将被禁用
+  Sentence_Translated: true  # 句子译文
+  Explanation_For_Word: true  # 单词解释，禁用此项后将不会进行词典查词，可节省时间
+  Voice: true  # 语音
+ 
+Tag:  # 是否添加标签
+  Character: true  # 添加说话人标签
+  Has_Voice: true  # 添加有语音/无语音标签
+ 
+Sentence_Length_Limitation:  # 句子长度限制（按日文汉字和假名的总数计数）
+  Min: 10  # 长度小于此值的句子将被忽略，可排除仅有语气词等的过短句
+  Max: 50  # 长度大于此值的句子将被忽略，可防止牌组过大
+  
