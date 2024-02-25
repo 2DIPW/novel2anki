@@ -30,7 +30,7 @@ from utils.pureSalsa20 import Salsa20
 import zlib
 # LZO compression is used for engine version < 2.0
 try:
-    import lzo
+    import utils.lzo
 except ImportError:
     lzo = None
     print("LZO compression support is not available")
