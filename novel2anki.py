@@ -33,8 +33,7 @@ def about():
 """)
 
 
-if __name__ == "__main__":
-    about()
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input', type=str, default="data.txt",
                         help='Path of input data file, default is data.txt')
@@ -65,14 +64,12 @@ if __name__ == "__main__":
         dict_parser = None
 
     # 启动媒体文件服务器
-    flask_thread = None
     if config["Include"]["Voice"]:
         app = Flask(__name__)
         app.logger.setLevel(logging.ERROR)
 
         log = logging.getLogger('werkzeug')
         log.setLevel(logging.ERROR)
-
 
         @app.route('/<filename>', methods=['GET'])
         def provide_file(filename):
@@ -167,9 +164,15 @@ if __name__ == "__main__":
 
             # 尝试添加Anki卡片
             try:
-                anki_adapter.add_note(config["Anki"]["Deck"], config["Anki"]["Model"], fields, tag, audio, config["Anki"]["Allow_Duplicate"])
+                anki_adapter.add_note(config["Anki"]["Deck"], config["Anki"]["Model"], fields, tag, audio,
+                                      config["Anki"]["Allow_Duplicate"])
                 added_count += 1
             except Exception as e:
                 print(f"Error when adding sentence {sentence_ori} to Anki: {repr(e)}")
 
     print(f"All done! {str(added_count)} cards have been added to Anki.")
+
+
+if __name__ == "__main__":
+    about()
+    main()

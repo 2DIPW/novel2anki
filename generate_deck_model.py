@@ -39,7 +39,7 @@ def generate(config):
         print(f"Error when creating model {model_name} to Anki: {repr(e)}")
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--config', type=str, default="config.yaml",
                         help='Path of config yaml file, default is config.yaml')
@@ -50,3 +50,6 @@ if __name__ == "__main__":
 
     generate(config)
 
+
+if __name__ == "__main__":
+    main()
