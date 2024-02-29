@@ -1,5 +1,6 @@
 <div class="title" align=center>
-    <h1>Novel2Anki</h1>
+<img alt="LOGO" src="./img/logo.png" width="128" height="128" />
+  <h1>Novel2Anki</h1>
 	<div>基于视觉小说文本批量制作 Anki 交互式日语学习卡片</div>
     <br/>
     <p>
